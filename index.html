@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Without Stress - Nigerian Parents' Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        
+        .sticker {
+            animation: bounce 0.5s ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            80% { transform: translateY(-5px); }
+        }
+        
+        .reward-glow {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+        }
+        
+        .task-complete {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
+    <!-- Navigation -->
+    <nav id="home-nav" class="shadow-lg" style="background-color: #FDE802;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <button onclick="showSection('home')" class="text-lg sm:text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors">
+                            <span class="hidden sm:inline">📚 Homework Without Stress</span>
+                            <span class="sm:hidden">📚 HWS</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-900 hover:text-gray-700 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop navigation -->
+                <div id="nav-buttons" class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <button onclick="toggleLoginDropdown()" class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                            Login <span class="ml-1">▼</span>
+                        </button>
+                        <div id="login-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                            <button onclick="showSection('parent-login')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-purple-50">Parent Login</button>
+                            <button onclick="showSection('teacher-login')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-purple-50">Teacher Login</button>
+                        </div>
+                    </div>
+                    <button onclick="showSection('register')" class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Register</button>
+                    <button onclick="showSection('contact')" class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact</button>
+                </div>
+            </div>
+            
+            <!-- Mobile navigation menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="space-y-2">
+                    <button onclick="showSection('parent-login'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-900 hover:bg-yellow-200 rounded-md">Parent Login</button>
+                    <button onclick="showSection('teacher-login'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-900 hover:bg-yellow-200 rounded-md">Teacher Login</button>
+                    <button onclick="showSection('register'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-900 hover:bg-yellow-200 rounded-md">Register</button>
+                    <button onclick="showSection('contact'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-900 hover:bg-yellow-200 rounded-md">Contact</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home-section" class="section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Hero Section -->
+            <div class="text-center mb-8 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">End Homework Stress and Struggle</h2>
+                <p class="text-lg sm:text-xl text-gray-600 mb-8 px-4">Help your children develop consistent study habits with our fun, interactive tracking system</p>
+            </div>
+
+            <!-- Problem & Solution -->
+            <div class="mb-8 sm:mb-16">
+                <div class="p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-purple-200 shadow-lg" style="background-color: #FDE802;">
+                    <h3 class="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6 text-center">From Homework Stress to Success Stories</h3>
+                    <p class="text-base sm:text-lg text-black leading-relaxed text-center max-w-4xl mx-auto">
+                        <span class="text-red-600 font-medium">Parents are exhausted from daily homework battles</span> - children procrastinate, parents feel helpless, and teachers receive incomplete assignments while reading culture declines. 
+                        <span class="text-purple-600 font-medium">But imagine this instead,</span> your child eagerly checking off completed tasks, earning colorful stickers and points, while you track their progress on a beautiful dashboard that makes homework feel like a fun game. 
+                        <span class="text-green-600 font-medium">That's exactly what our system delivers</span> - transforming homework from a daily struggle into an exciting journey of achievement and growth for the whole family.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="text-center mb-8 sm:mb-12">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 px-4">Affordable Pricing for Every Family</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-2 border-blue-200">
+                        <h4 class="text-xl sm:text-2xl font-bold mb-4" style="color: #FD0294;">1 Child</h4>
+                        <div class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">₦5,000</div>
+                        <div class="text-gray-600 mb-6">per month</div>
+                        <ul class="space-y-2 text-left text-sm sm:text-base">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Daily homework tracker</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Reward system</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Reading tracker</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Parent dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-2 border-purple-200 relative">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Best Value
+                        </div>
+                        <h4 class="text-xl sm:text-2xl font-bold mb-4" style="color: #FD0294;">3-6 Children</h4>
+                        <div class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">₦10,000</div>
+                        <div class="text-gray-600 mb-6">per month</div>
+                        <ul class="space-y-2 text-left text-sm sm:text-base">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>All features for up to 6 kids</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Family leaderboard</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Sibling challenges</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Bulk reward management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <button onclick="showSection('register')" class="text-white px-8 py-4 rounded-lg text-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all" style="background-color: #FD0294;">
+                    Start 7-Day Free Trial
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Section -->
+    <div id="register-section" class="section hidden">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Start Your 7-Day Free Trial</h2>
+                
+                <form id="registration-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Parent's Full Name</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your full name">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Create a secure password">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                        <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Confirm your password">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Number of Children</label>
+                        <select id="children-count" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" onchange="updatePricing()">
+                            <option value="1">1 Child (₦5,000/month)</option>
+                            <option value="3">3-6 Children (₦10,000/month)</option>
+                        </select>
+                    </div>
+                    
+                    <div id="children-details" class="space-y-4">
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 1 Name & Class</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (e.g., JSS 1)">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">🎉 Your Free Trial Includes:</h4>
+                        <ul class="text-sm text-green-700 space-y-1">
+                            <li>• 7 days full access to all features</li>
+                            <li>• No payment required to start</li>
+                            <li>• Cancel anytime during trial</li>
+                            <li>• Automatic billing after trial ends</li>
+                        </ul>
+                    </div>
+                    
+                    <button type="submit" class="w-full text-black py-4 rounded-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all" style="background-color: #FDE802;">
+                        Start Free Trial Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parent Login Section -->
+    <div id="parent-login-section" class="section hidden">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">👨‍👩‍👧‍👦 Parent Login</h2>
+                
+                <form id="parent-login-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your password">
+                    </div>
+                    
+                    <button type="submit" class="w-full text-black py-4 rounded-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all" style="background-color: #FDE802;">
+                        Login to Dashboard
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Don't have an account? 
+                        <button onclick="showSection('register')" class="text-purple-600 hover:text-purple-700 font-medium">Register here</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact-section" class="section hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+                <p class="text-xl text-gray-600">We're here to help make homework stress-free for your family</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #FDE802;">
+                                📧
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Email Support</h4>
+                                <p class="text-gray-600">morichcare@gmail.com</p>
+                                <p class="text-sm text-gray-500">We respond within 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #FDE802;">
+                                📱
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">WhatsApp Support</h4>
+                                <p class="text-gray-600">09016472315</p>
+                                <p class="text-sm text-gray-500">Monday - Friday, 9AM - 6PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #FDE802;">
+                                📞
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Phone Support</h4>
+                                <p class="text-gray-600">09016472315</p>
+                                <p class="text-sm text-gray-500">Monday - Friday, 9AM - 6PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #FDE802;">
+                                📍
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Office Address</h4>
+                                <p class="text-gray-600">123 Education Street<br>Victoria Island, Lagos<br>Nigeria</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background-color: #FDE802;">
+                                🌐
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Follow Us</h4>
+                                <div class="flex space-x-3 mt-2">
+                                    <a href="#" class="text-blue-600 hover:text-blue-700">Facebook</a>
+                                    <a href="#" class="text-blue-400 hover:text-blue-500">Twitter</a>
+                                    <a href="#" class="text-pink-600 hover:text-pink-700">Instagram</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="+234 xxx xxx xxxx">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <option value="">Select a topic</option>
+                                <option value="support">Technical Support</option>
+                                <option value="billing">Billing Question</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="partnership">School Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea required rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full text-white py-4 rounded-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all" style="background-color: #FDE802; color: #000;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">How does the free trial work?</h4>
+                        <p class="text-gray-600 text-sm">You get 7 days of full access to all features. No payment required upfront. You can cancel anytime during the trial.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Can teachers access my child's progress?</h4>
+                        <p class="text-gray-600 text-sm">Yes! You can generate access codes for teachers to view homework completion and add assignments directly.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">What payment methods do you accept?</h4>
+                        <p class="text-gray-600 text-sm">We accept bank transfers, card payments, and mobile money (Flutterwave integration).</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Is my data secure?</h4>
+                        <p class="text-gray-600 text-sm">Absolutely! We use bank-level encryption and never share your personal information with third parties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Login Section -->
+    <div id="teacher-login-section" class="section hidden">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">👩‍🏫 Teacher Login</h2>
+                
+                <form id="teacher-login-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="+234 xxx xxx xxxx">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Access Code</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter access code from parent">
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">📝 For Teachers:</h4>
+                        <ul class="text-sm text-blue-700 space-y-1">
+                            <li>• Get the access code from the parent</li>
+                            <li>• Use your registered phone number</li>
+                            <li>• Track student homework progress</li>
+                            <li>• Add assignments directly</li>
+                        </ul>
+                    </div>
+                    
+                    <button type="submit" class="w-full text-black py-4 rounded-lg font-semibold hover:opacity-90 transform hover:scale-105 transition-all" style="background-color: #FDE802;">
+                        Access Teacher Dashboard
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" class="section hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Dashboard Header -->
+            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Welcome back, <span id="parent-name">Parent</span>! 👋</h2>
+                        <p class="text-sm sm:text-base text-gray-600">Track your children's progress and celebrate their achievements</p>
+                    </div>
+                    <div class="relative">
+                        <button onclick="toggleUserDropdown()" class="flex items-center space-x-2 bg-purple-100 text-purple-800 px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-200 transition-colors text-sm sm:text-base">
+                            <span class="font-medium" id="header-parent-name">Parent</span>
+                            <span>▼</span>
+                        </button>
+                        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                            <button onclick="logout()" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">🚪 Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Tabs -->
+            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
+                <div class="flex space-x-1 bg-gray-100 p-1 rounded-lg">
+                    <button onclick="showDashboardPage('homework')" id="homework-tab" class="dashboard-tab flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-md font-medium transition-colors text-xs sm:text-sm" style="background-color: #0216FD; color: white;">
+                        <span class="hidden sm:inline">📝 Homework</span>
+                        <span class="sm:hidden">📝</span>
+                    </button>
+                    <button onclick="showDashboardPage('rewards')" id="rewards-tab" class="dashboard-tab flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-md font-medium transition-colors text-gray-600 hover:text-gray-900 text-xs sm:text-sm">
+                        <span class="hidden sm:inline">🏆 Rewards</span>
+                        <span class="sm:hidden">🏆</span>
+                    </button>
+                    <button onclick="showDashboardPage('progress')" id="progress-tab" class="dashboard-tab flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-md font-medium transition-colors text-gray-600 hover:text-gray-900 text-xs sm:text-sm">
+                        <span class="hidden sm:inline">📊 Progress</span>
+                        <span class="sm:hidden">📊</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Child Selector -->
+            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
+                <h3 class="text-base sm:text-lg font-semibold mb-4">Select Child</h3>
+                <div class="flex flex-wrap gap-2 sm:gap-4" id="child-selector-container">
+                    <!-- Children buttons will be populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Homework Page -->
+            <div id="homework-page" class="dashboard-page">
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-6 sm:mb-8">
+                    <div class="p-3 sm:p-6 rounded-xl text-black" style="background-color: #02FD6B;">
+                        <div class="text-xl sm:text-3xl font-bold" id="completed-tasks">0</div>
+                        <div class="opacity-75 text-xs sm:text-base">Tasks Completed</div>
+                    </div>
+                    <div class="p-3 sm:p-6 rounded-xl text-white" style="background-color: #0216FD;">
+                        <div class="text-xl sm:text-3xl font-bold" id="books-read">0</div>
+                        <div class="opacity-75 text-xs sm:text-base">Books Read</div>
+                    </div>
+                    <div class="p-3 sm:p-6 rounded-xl text-white" style="background-color: #FD0294;">
+                        <div class="text-xl sm:text-3xl font-bold" id="total-points">0</div>
+                        <div class="opacity-75 text-xs sm:text-base">Total Points</div>
+                    </div>
+                    <div class="p-3 sm:p-6 rounded-xl text-black" style="background-color: #FDE902;">
+                        <div class="text-xl sm:text-3xl font-bold" id="streak-days">0</div>
+                        <div class="opacity-75 text-xs sm:text-base">Day Streak</div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Daily Planner -->
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-4 sm:p-6">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-900">📅 Daily Planner</h3>
+                            <button onclick="addNewTask()" class="px-4 py-2 rounded-lg font-medium hover:opacity-90 transform hover:scale-105 transition-all text-sm sm:text-base w-full sm:w-auto" style="background-color: #02FD6B; color: black;">
+                                + Add Task
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-4" id="tasks-container">
+                            <!-- Sample tasks will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Next Rewards Preview -->
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-6">🎯 Next Rewards</h3>
+                        
+                        <!-- Points Display -->
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-lg mb-6">
+                            <div class="text-center">
+                                <div class="text-xl sm:text-2xl font-bold" id="current-points">0</div>
+                                <div class="text-yellow-100 text-sm sm:text-base">Current Points</div>
+                            </div>
+                        </div>
+
+                        <!-- Next Available Rewards -->
+                        <div class="space-y-3">
+                            <div class="p-3 border border-gray-200 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-sm sm:text-base">🧸 Small Toy</div>
+                                        <div class="text-xs sm:text-sm text-gray-500">25 points to go!</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-sm sm:text-base">70 pts</div>
+                                </div>
+                            </div>
+                            <div class="p-3 border border-gray-200 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-sm sm:text-base">🍕 Favorite Food</div>
+                                        <div class="text-xs sm:text-sm text-gray-500">165 points to go!</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-sm sm:text-base">80 pts</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 text-center">
+                            <button onclick="showDashboardPage('rewards')" class="px-4 py-2 rounded-lg font-medium hover:opacity-90 transform hover:scale-105 transition-all text-sm sm:text-base w-full sm:w-auto" style="background-color: #FDE902; color: black;">
+                                View All Rewards →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Access Code -->
+                <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">👩‍🏫 Teacher Access</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <h4 class="font-semibold text-blue-800">Current Access Code for Teachers</h4>
+                                <p class="text-sm text-blue-600">Share this code with your child's teacher</p>
+                            </div>
+                            <button onclick="generateAccessCode()" class="px-4 py-2 rounded-lg font-medium hover:opacity-90 transform hover:scale-105 transition-all text-sm" style="background-color: #0216FD; color: white;">
+                                Generate New Code
+                            </button>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-800 mb-2" id="access-code">HWS-2024-ABC123</div>
+                                <div class="text-sm text-gray-600">Valid for 30 days</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rewards Page -->
+            <div id="rewards-page" class="dashboard-page hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Rewards Catalog -->
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-6">🏆 Available Rewards</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Small Rewards -->
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('small-toy', 70)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">🧸 Small Toy</div>
+                                        <div class="text-sm text-gray-500">Action figure, doll, or puzzle</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">70 pts</div>
+                                </div>
+                            </div>
+
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('favorite-food', 80)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">🍕 Favorite Food</div>
+                                        <div class="text-sm text-gray-500">Pizza, ice cream, or treat</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">80 pts</div>
+                                </div>
+                            </div>
+
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('friend-playdate', 90)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">👫 Friend Play Date</div>
+                                        <div class="text-sm text-gray-500">Invite a friend over</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">90 pts</div>
+                                </div>
+                            </div>
+
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('extra-screen-time', 200)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">📱 Extra Screen Time</div>
+                                        <div class="text-sm text-gray-500">45 minutes extra</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">200 pts</div>
+                                </div>
+                            </div>
+
+                            <!-- Medium Rewards -->
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('movie-night', 250)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">🎬 Family Movie Night</div>
+                                        <div class="text-sm text-gray-500">With popcorn & snacks</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">250 pts</div>
+                                </div>
+                            </div>
+
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('special-outing', 250)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">🎡 Special Outing</div>
+                                        <div class="text-sm text-gray-500">Park, zoo, or fun center</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">250 pts</div>
+                                </div>
+                            </div>
+
+                            <!-- Big Rewards -->
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('cash-5000', 300)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">💵 Cash Reward</div>
+                                        <div class="text-sm text-gray-500">₦5,000 spending money</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">300 pts</div>
+                                </div>
+                            </div>
+
+                            <div class="reward-item p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer" onclick="claimReward('cash-10000', 500)">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-medium text-lg">💰 Big Cash Reward</div>
+                                        <div class="text-sm text-gray-500">₦10,000 spending money</div>
+                                    </div>
+                                    <div class="text-purple-600 font-bold text-lg">500 pts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Points & Stickers -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">🎯 Your Progress</h3>
+                        
+                        <!-- Points Display -->
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-lg mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold" id="rewards-current-points">0</div>
+                                <div class="text-yellow-100">Current Points</div>
+                            </div>
+                        </div>
+
+                        <!-- Sticker Collection -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">Sticker Collection</h4>
+                            <div class="grid grid-cols-4 gap-2" id="sticker-collection">
+                                <!-- Stickers will be populated dynamically -->
+                            </div>
+                            <div id="no-stickers" class="text-center text-gray-500 text-sm py-4">
+                                Complete tasks to earn stickers! 🌟
+                            </div>
+                        </div>
+
+                        <!-- Recent Rewards -->
+                        <div>
+                            <h4 class="font-semibold mb-3">Recent Rewards Claimed</h4>
+                            <div class="space-y-2 text-sm" id="recent-rewards">
+                                <!-- Recent rewards will be populated dynamically -->
+                            </div>
+                            <div id="no-rewards" class="text-center text-gray-500 text-sm py-4">
+                                No rewards claimed yet. Keep earning points! 🏆
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Page -->
+            <div id="progress-page" class="dashboard-page hidden">
+                <!-- Weekly Overview -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">📊 Weekly Progress</h3>
+                    <div class="grid grid-cols-7 gap-4" id="weekly-progress">
+                        <!-- Weekly progress will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Monthly Statistics -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">📈 Monthly Statistics</h3>
+                        <div class="space-y-4" id="monthly-stats">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Tasks Completed</span>
+                                <span class="font-bold text-green-600" id="monthly-tasks">0/0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Books Read</span>
+                                <span class="font-bold text-blue-600" id="monthly-books">0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Points Earned</span>
+                                <span class="font-bold text-purple-600" id="monthly-points">0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Longest Streak</span>
+                                <span class="font-bold text-yellow-600" id="monthly-streak">0 days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">📚 Subject Performance</h3>
+                        <div class="space-y-4" id="subject-performance">
+                            <!-- Subject performance will be populated dynamically -->
+                        </div>
+                        <div id="no-subjects" class="text-center text-gray-500 text-sm py-4">
+                            Complete tasks to see subject performance! 📊
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">🏅 Achievements</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="achievements">
+                        <!-- Achievements will be populated dynamically -->
+                    </div>
+                    <div id="no-achievements" class="text-center text-gray-500 text-sm py-8">
+                        Complete tasks and reach milestones to unlock achievements! 🏆
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div id="task-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl p-4 sm:p-8 max-w-md w-full max-h-screen overflow-y-auto">
+            <h3 class="text-lg sm:text-xl font-bold mb-6">Add New Task</h3>
+            <form id="task-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Task Type</label>
+                    <select id="task-type" class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm sm:text-base">
+                        <option value="homework">📝 Homework</option>
+                        <option value="reading">📚 Reading</option>
+                        <option value="study">📖 Study Session</option>
+                        <option value="project">🎨 Project Work</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Task Description</label>
+                    <input type="text" id="task-description" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm sm:text-base" placeholder="e.g., Math homework Chapter 5">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                    <input type="text" id="task-subject" class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm sm:text-base" placeholder="e.g., Mathematics">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Date Given</label>
+                        <input type="date" id="task-date-given" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm sm:text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Due Date</label>
+                        <input type="date" id="task-due-date" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm sm:text-base">
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 pt-4">
+                    <button type="button" onclick="closeTaskModal()" class="flex-1 py-3 rounded-lg font-medium hover:opacity-90 transform hover:scale-105 transition-all text-sm sm:text-base" style="background-color: #FD0294; color: white;">
+                        Cancel
+                    </button>
+                    <button type="submit" class="flex-1 py-3 rounded-lg font-medium hover:opacity-90 transform hover:scale-105 transition-all text-sm sm:text-base" style="background-color: #02FD6B; color: black;">
+                        Add Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 py-12 px-4" style="background-color: #FDE802;">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">📚 Homework Without Stress</h3>
+                    <p class="text-gray-700 mb-4">Making homework fun and stress-free for Nigerian families. Transform your child's study habits with our interactive tracking system.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><button onclick="showSection('home')" class="text-gray-700 hover:text-gray-900">Home</button></li>
+                        <li><button onclick="showSection('register')" class="text-gray-700 hover:text-gray-900">Start Free Trial</button></li>
+                        <li><button onclick="showSection('parent-login')" class="text-gray-700 hover:text-gray-900">Parent Login</button></li>
+                        <li><button onclick="showSection('teacher-login')" class="text-gray-700 hover:text-gray-900">Teacher Login</button></li>
+                        <li><button onclick="showSection('contact')" class="text-gray-700 hover:text-gray-900">Contact Us</button></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-700">
+                        <p class="flex items-center"><span class="mr-2">📧</span> morichcare@gmail.com</p>
+                        <p class="flex items-center"><span class="mr-2">📱</span> 09016472315</p>
+                        <p class="flex items-center"><span class="mr-2">📍</span> Festac Town, Lagos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-300 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-700 text-sm mb-4 md:mb-0">
+                        © 2025 Homework Without Stress. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-700 hover:text-gray-900">Privacy Policy</a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900">Terms of Service</a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global state
+        let currentUser = null;
+        let currentChild = null;
+        let currentDashboardPage = 'homework';
+        let tasks = [];
+        let points = 0;
+        let completedTasks = 0;
+        let booksRead = 0;
+        let streakDays = 0;
+
+        // Navigation functions
+        function showSection(sectionName) {
+            try {
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => section.classList.add('hidden'));
+                
+                const targetSection = document.getElementById(sectionName + '-section');
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+                
+                // Hide dropdown when navigating
+                const loginDropdown = document.getElementById('login-dropdown');
+                if (loginDropdown) {
+                    loginDropdown.classList.add('hidden');
+                }
+                
+                // Show/hide navigation buttons based on section
+                const navButtons = document.getElementById('nav-buttons');
+                if (navButtons) {
+                    if (sectionName === 'dashboard') {
+                        navButtons.style.display = 'none';
+                    } else {
+                        navButtons.style.display = 'flex';
+                    }
+                }
+            } catch (error) {
+                console.error('Error in showSection:', error);
+            }
+        }
+
+        function toggleLoginDropdown() {
+            try {
+                const dropdown = document.getElementById('login-dropdown');
+                if (dropdown) {
+                    dropdown.classList.toggle('hidden');
+                }
+            } catch (error) {
+                console.error('Error in toggleLoginDropdown:', error);
+            }
+        }
+
+        function toggleMobileMenu() {
+            try {
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.toggle('hidden');
+                }
+            } catch (error) {
+                console.error('Error in toggleMobileMenu:', error);
+            }
+        }
+
+        function toggleUserDropdown() {
+            try {
+                const dropdown = document.getElementById('user-dropdown');
+                if (dropdown) {
+                    dropdown.classList.toggle('hidden');
+                }
+            } catch (error) {
+                console.error('Error in toggleUserDropdown:', error);
+            }
+        }
+
+        function logout() {
+            try {
+                currentUser = null;
+                localStorage.removeItem('hwsCurrentUser');
+                
+                // Reset global state
+                points = 0;
+                completedTasks = 0;
+                booksRead = 0;
+                streakDays = 0;
+                tasks = [];
+                currentChild = null;
+                
+                alert('👋 You have been logged out successfully!');
+                showSection('home');
+            } catch (error) {
+                console.error('Error in logout:', error);
+            }
+        }
+
+        // Task modal functions
+        function addNewTask() {
+            try {
+                const modal = document.getElementById('task-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    setDefaultDates();
+                }
+            } catch (error) {
+                console.error('Error in addNewTask:', error);
+            }
+        }
+
+        function closeTaskModal() {
+            try {
+                const modal = document.getElementById('task-modal');
+                if (modal) {
+                    modal.classList.add('hidden');
+                    const form = document.getElementById('task-form');
+                    if (form) form.reset();
+                }
+            } catch (error) {
+                console.error('Error in closeTaskModal:', error);
+            }
+        }
+
+        // Dashboard page navigation
+        function showDashboardPage(page) {
+            try {
+                // Hide all dashboard pages
+                const pages = ['homework', 'rewards', 'progress'];
+                pages.forEach(p => {
+                    const pageElement = document.getElementById(p + '-page');
+                    if (pageElement) {
+                        pageElement.classList.add('hidden');
+                    }
+                });
+                
+                // Show selected page
+                const selectedPage = document.getElementById(page + '-page');
+                if (selectedPage) {
+                    selectedPage.classList.remove('hidden');
+                }
+                
+                // Update tab styles
+                const tabs = document.querySelectorAll('.dashboard-tab');
+                tabs.forEach(tab => {
+                    tab.style.backgroundColor = '';
+                    tab.style.color = '';
+                    tab.classList.add('text-gray-600');
+                });
+                
+                // Highlight active tab with vibrant colors
+                const activeTab = document.getElementById(page + '-tab');
+                if (activeTab) {
+                    activeTab.classList.remove('text-gray-600');
+                    if (page === 'homework') {
+                        activeTab.style.backgroundColor = '#0216FD';
+                        activeTab.style.color = 'white';
+                    } else if (page === 'rewards') {
+                        activeTab.style.backgroundColor = '#FD0294';
+                        activeTab.style.color = 'white';
+                    } else if (page === 'progress') {
+                        activeTab.style.backgroundColor = '#02FD6B';
+                        activeTab.style.color = 'black';
+                    }
+                }
+                
+                currentDashboardPage = page;
+            } catch (error) {
+                console.error('Error in showDashboardPage:', error);
+            }
+        }
+
+        // Dashboard functions
+        function selectChild(childId) {
+            try {
+                currentChild = childId;
+                const buttons = document.querySelectorAll('.child-btn');
+                buttons.forEach(btn => {
+                    if (btn.dataset.child === childId) {
+                        // Keep the selected child's vibrant color
+                        btn.style.opacity = '1';
+                        btn.style.transform = 'scale(1.05)';
+                    } else {
+                        // Dim unselected children
+                        btn.style.opacity = '0.6';
+                        btn.style.transform = 'scale(1)';
+                    }
+                });
+                loadTasksForChild(childId);
+            } catch (error) {
+                console.error('Error in selectChild:', error);
+            }
+        }
+
+        function loadTasksForChild(childId) {
+            try {
+                if (!currentUser || !currentUser.tasks || !currentUser.tasks[childId]) {
+                    tasks = [];
+                } else {
+                    tasks = currentUser.tasks[childId];
+                }
+                renderTasks();
+            } catch (error) {
+                console.error('Error in loadTasksForChild:', error);
+                tasks = [];
+                renderTasks();
+            }
+        }
+
+        function renderTasks() {
+            try {
+                const container = document.getElementById('tasks-container');
+                if (!container) return;
+                
+                container.innerHTML = '';
+
+                if (tasks.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-8 text-gray-500">
+                            <div class="text-4xl mb-4">📝</div>
+                            <p>No tasks yet! Click "Add Task" to get started.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                tasks.forEach(task => {
+                    const taskElement = createTaskElement(task);
+                    container.appendChild(taskElement);
+                });
+            } catch (error) {
+                console.error('Error in renderTasks:', error);
+            }
+        }
+
+        function createTaskElement(task) {
+            const div = document.createElement('div');
+            const isOverdue = new Date(task.dueDate) < new Date() && !task.completed;
+            const daysUntilDue = Math.ceil((new Date(task.dueDate) - new Date()) / (1000 * 60 * 60 * 24));
+            
+            // Use vibrant color palette for task states
+            let taskStyle = '';
+            if (task.completed) {
+                taskStyle = 'border-2 rounded-lg transition-all transform hover:scale-105' + 
+                           ' style="background-color: #02FD6B; border-color: #02FD6B; color: black;"';
+            } else if (isOverdue) {
+                taskStyle = 'border-2 rounded-lg transition-all transform hover:scale-105' + 
+                           ' style="background-color: #FD0294; border-color: #FD0294; color: white;"';
+            } else {
+                taskStyle = 'border-2 rounded-lg transition-all transform hover:scale-105' + 
+                           ' style="background-color: #FDE902; border-color: #FDE902; color: black;"';
+            }
+            
+            div.className = `task-item p-4 ${taskStyle}`;
+            
+            const checkboxStyle = task.completed ? 
+                'style="background-color: #0216FD; border-color: #0216FD; color: white;"' :
+                'style="border-color: #0216FD; color: #0216FD;" onmouseover="this.style.backgroundColor=\'#0216FD\'; this.style.color=\'white\';" onmouseout="this.style.backgroundColor=\'\'; this.style.color=\'#0216FD\';"';
+            
+            const subjectBadgeStyle = task.completed ? 
+                'style="background-color: rgba(0,0,0,0.1); color: black;"' :
+                isOverdue ? 'style="background-color: rgba(255,255,255,0.2); color: white;"' :
+                'style="background-color: rgba(0,0,0,0.1); color: black;"';
+            
+            const pointsColor = task.completed ? 'black' : isOverdue ? 'white' : 'black';
+            
+            div.innerHTML = `
+                <div class="flex items-start justify-between">
+                    <div class="flex items-start space-x-3 flex-1">
+                        <button onclick="toggleTask(${task.id})" class="mt-1 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all" ${checkboxStyle}>
+                            ${task.completed ? '✓' : ''}
+                        </button>
+                        <div class="flex-1">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <span class="text-lg">${getTaskIcon(task.type)}</span>
+                                <span class="font-medium ${task.completed ? 'line-through opacity-75' : ''}">${task.description}</span>
+                            </div>
+                            <div class="text-sm mb-2">
+                                <span class="px-2 py-1 rounded" ${subjectBadgeStyle}>${task.subject}</span>
+                            </div>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <span class="opacity-75">Given: ${formatDate(task.dateGiven)}</span>
+                                <span class="font-medium">
+                                    Due: ${formatDate(task.dueDate)} ${!task.completed ? `(${daysUntilDue > 0 ? daysUntilDue + ' days' : 'Today'})` : ''}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-bold text-lg" style="color: ${pointsColor};">${task.points} pts</div>
+                        ${task.completed ? '<div class="text-xs mt-1 opacity-75">Completed! 🎉</div>' : ''}
+                    </div>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        function getTaskIcon(type) {
+            const icons = {
+                homework: '📝',
+                reading: '📚',
+                study: '📖',
+                project: '🎨'
+            };
+            return icons[type] || '📝';
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+        }
+
+        function toggleTask(taskId) {
+            try {
+                const task = tasks.find(t => t.id === taskId);
+                if (task && currentUser) {
+                    task.completed = !task.completed;
+                    
+                    if (task.completed) {
+                        // Mark completion with current timestamp
+                        task.completedDate = new Date().toISOString();
+                        task.completedOn = new Date().toISOString().split('T')[0]; // Store date for tracking
+                        
+                        // Update live stats
+                        points += task.points;
+                        completedTasks++;
+                        showRewardAnimation(task.points);
+                        addSticker();
+                        
+                        // Update reading count if it's a reading task
+                        if (task.type === 'reading') {
+                            booksRead++;
+                        }
+                        
+                        // Update streak calculation
+                        updateStreakDays();
+                        
+                    } else {
+                        // Remove completion data
+                        task.completedDate = null;
+                        task.completedOn = null;
+                        
+                        // Revert live stats
+                        points = Math.max(0, points - task.points);
+                        completedTasks = Math.max(0, completedTasks - 1);
+                        
+                        // Decrease reading count if it was a reading task
+                        if (task.type === 'reading' && booksRead > 0) {
+                            booksRead--;
+                        }
+                        
+                        // Recalculate streak
+                        updateStreakDays();
+                    }
+                    
+                    // Save all changes to user data
+                    currentUser.tasks[currentChild] = tasks;
+                    currentUser.stats = {
+                        points: points,
+                        completedTasks: completedTasks,
+                        booksRead: booksRead,
+                        streakDays: streakDays
+                    };
+                    
+                    updateUserData(currentUser);
+                    updateStats();
+                    renderTasks();
+                }
+            } catch (error) {
+                console.error('Error in toggleTask:', error);
+            }
+        }
+
+        function showRewardAnimation(earnedPoints) {
+            try {
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform';
+                notification.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xl">🎉</span>
+                        <span class="font-medium">+${earnedPoints} points earned!</span>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-full');
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        if (document.body.contains(notification)) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 300);
+                }, 3000);
+            } catch (error) {
+                console.error('Error in showRewardAnimation:', error);
+            }
+        }
+
+        function addSticker() {
+            try {
+                if (!currentUser) return;
+                
+                const stickers = ['⭐', '🌟', '✨', '🎯', '🏆', '🎉', '💫', '🔥'];
+                const colors = ['bg-yellow-100', 'bg-green-100', 'bg-blue-100', 'bg-purple-100', 'bg-pink-100', 'bg-red-100'];
+                const randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Initialize stickers array if it doesn't exist
+                if (!currentUser.stickers) {
+                    currentUser.stickers = [];
+                }
+                
+                // Add sticker to user data
+                if (currentUser.stickers.length < 20) {
+                    currentUser.stickers.push({
+                        emoji: randomSticker,
+                        color: randomColor,
+                        earnedAt: new Date().toISOString()
+                    });
+                    
+                    updateUserData(currentUser);
+                    renderStickers();
+                }
+            } catch (error) {
+                console.error('Error in addSticker:', error);
+            }
+        }
+
+        function renderStickers() {
+            try {
+                const collection = document.getElementById('sticker-collection');
+                const noStickers = document.getElementById('no-stickers');
+                
+                if (!collection || !noStickers) return;
+                
+                if (!currentUser || !currentUser.stickers || currentUser.stickers.length === 0) {
+                    collection.innerHTML = '';
+                    noStickers.style.display = 'block';
+                    return;
+                }
+                
+                noStickers.style.display = 'none';
+                collection.innerHTML = '';
+                
+                currentUser.stickers.forEach(sticker => {
+                    const stickerElement = document.createElement('div');
+                    stickerElement.className = `sticker text-2xl p-2 ${sticker.color} rounded-lg text-center`;
+                    stickerElement.textContent = sticker.emoji;
+                    collection.appendChild(stickerElement);
+                });
+            } catch (error) {
+                console.error('Error in renderStickers:', error);
+            }
+        }
+
+        function updateStats() {
+            try {
+                const elements = {
+                    'completed-tasks': completedTasks,
+                    'books-read': booksRead,
+                    'total-points': points,
+                    'current-points': points,
+                    'streak-days': streakDays,
+                    'rewards-current-points': points
+                };
+                
+                Object.entries(elements).forEach(([id, value]) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.textContent = value;
+                    }
+                });
+                
+                // Update all live data
+                renderStickers();
+                renderRecentRewards();
+                updateMonthlyStats();
+                updateWeeklyProgress();
+                updateSubjectPerformance();
+                updateAchievements();
+            } catch (error) {
+                console.error('Error in updateStats:', error);
+            }
+        }
+
+        function renderRecentRewards() {
+            try {
+                const container = document.getElementById('recent-rewards');
+                const noRewards = document.getElementById('no-rewards');
+                
+                if (!container || !noRewards) return;
+                
+                if (!currentUser || !currentUser.rewards || currentUser.rewards.length === 0) {
+                    container.innerHTML = '';
+                    noRewards.style.display = 'block';
+                    return;
+                }
+                
+                noRewards.style.display = 'none';
+                container.innerHTML = '';
+                
+                const rewardNames = {
+                    'small-toy': '🧸 Small Toy',
+                    'favorite-food': '🍕 Favorite Food',
+                    'friend-playdate': '👫 Friend Play Date',
+                    'extra-screen-time': '📱 Extra Screen Time',
+                    'movie-night': '🎬 Family Movie Night',
+                    'special-outing': '🎡 Special Outing',
+                    'cash-5000': '💵 Cash Reward ₦5,000',
+                    'cash-10000': '💰 Big Cash Reward ₦10,000'
+                };
+                
+                // Show last 3 rewards
+                const recentRewards = currentUser.rewards.slice(-3).reverse();
+                
+                recentRewards.forEach(reward => {
+                    const rewardElement = document.createElement('div');
+                    rewardElement.className = 'flex justify-between items-center p-2 bg-green-50 rounded';
+                    
+                    const timeAgo = getTimeAgo(reward.claimedAt);
+                    
+                    rewardElement.innerHTML = `
+                        <span>${rewardNames[reward.type] || reward.type}</span>
+                        <span class="text-green-600">${timeAgo}</span>
+                    `;
+                    
+                    container.appendChild(rewardElement);
+                });
+            } catch (error) {
+                console.error('Error in renderRecentRewards:', error);
+            }
+        }
+
+        function getTimeAgo(dateString) {
+            try {
+                const now = new Date();
+                const date = new Date(dateString);
+                const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
+                
+                if (diffInHours < 1) return 'Just now';
+                if (diffInHours < 24) return `${diffInHours}h ago`;
+                
+                const diffInDays = Math.floor(diffInHours / 24);
+                return `${diffInDays}d ago`;
+            } catch (error) {
+                console.error('Error in getTimeAgo:', error);
+                return 'Recently';
+            }
+        }
+
+        function updateMonthlyStats() {
+            try {
+                const monthlyTasksEl = document.getElementById('monthly-tasks');
+                const monthlyBooksEl = document.getElementById('monthly-books');
+                const monthlyPointsEl = document.getElementById('monthly-points');
+                const monthlyStreakEl = document.getElementById('monthly-streak');
+                
+                if (monthlyTasksEl) monthlyTasksEl.textContent = `${completedTasks}/30`;
+                if (monthlyBooksEl) monthlyBooksEl.textContent = booksRead;
+                if (monthlyPointsEl) monthlyPointsEl.textContent = points;
+                if (monthlyStreakEl) monthlyStreakEl.textContent = `${streakDays} days`;
+            } catch (error) {
+                console.error('Error in updateMonthlyStats:', error);
+            }
+        }
+
+        function updateStreakDays() {
+            try {
+                if (!currentUser || !currentUser.tasks || !currentChild || !currentUser.tasks[currentChild]) {
+                    streakDays = 0;
+                    return;
+                }
+                
+                const today = new Date();
+                let currentStreak = 0;
+                let checkDate = new Date(today);
+                
+                // Check each day going backwards from today
+                while (true) {
+                    const dateStr = checkDate.toISOString().split('T')[0];
+                    
+                    // Check if any tasks were completed on this date
+                    const hasCompletedTasks = currentUser.tasks[currentChild].some(task => 
+                        task.completed && task.completedOn === dateStr
+                    );
+                    
+                    if (hasCompletedTasks) {
+                        currentStreak++;
+                        checkDate.setDate(checkDate.getDate() - 1);
+                    } else {
+                        // If today has no completed tasks, streak is 0
+                        // If yesterday or earlier has no tasks, stop counting
+                        if (dateStr === today.toISOString().split('T')[0]) {
+                            currentStreak = 0;
+                        }
+                        break;
+                    }
+                    
+                    // Don't go back more than 30 days
+                    if (currentStreak >= 30) break;
+                }
+                
+                streakDays = currentStreak;
+            } catch (error) {
+                console.error('Error in updateStreakDays:', error);
+                streakDays = 0;
+            }
+        }
+
+        function updateWeeklyProgress() {
+            try {
+                const container = document.getElementById('weekly-progress');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                
+                // Get actual completion data for the past 7 days
+                const today = new Date();
+                const weekData = [];
+                
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date(today);
+                    date.setDate(date.getDate() - i);
+                    const dateStr = date.toISOString().split('T')[0];
+                    
+                    // Check if any tasks were completed on this date
+                    let hasCompletedTasks = false;
+                    if (currentUser && currentUser.tasks && currentChild && currentUser.tasks[currentChild]) {
+                        hasCompletedTasks = currentUser.tasks[currentChild].some(task => 
+                            task.completed && task.completedOn === dateStr
+                        );
+                    }
+                    
+                    weekData.push({
+                        day: days[date.getDay() === 0 ? 6 : date.getDay() - 1], // Adjust for Monday start
+                        completed: hasCompletedTasks,
+                        date: dateStr
+                    });
+                }
+                
+                weekData.forEach((dayData, index) => {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'text-center';
+                    
+                    const bgColor = dayData.completed ? '#02FD6B' : '#f3f4f6';
+                    const textColor = dayData.completed ? 'black' : '#6b7280';
+                    
+                    dayElement.innerHTML = `
+                        <div class="text-sm font-medium mb-2" style="color: ${textColor}">${dayData.day}</div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto" style="background-color: ${bgColor}; color: ${textColor}">
+                            ${dayData.completed ? '✓' : new Date(dayData.date).getDate()}
+                        </div>
+                    `;
+                    
+                    container.appendChild(dayElement);
+                });
+                
+                // Show message if no data
+                if (!currentUser || !currentUser.tasks || !currentChild || !currentUser.tasks[currentChild] || currentUser.tasks[currentChild].length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-7 text-center py-8 text-gray-500">
+                            <div class="text-2xl mb-2">📅</div>
+                            <p class="text-sm">Complete tasks to see your weekly progress!</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error in updateWeeklyProgress:', error);
+            }
+        }
+
+        function updateSubjectPerformance() {
+            try {
+                const container = document.getElementById('subject-performance');
+                const noSubjects = document.getElementById('no-subjects');
+                
+                if (!container || !noSubjects) return;
+                
+                if (!currentUser || !tasks || tasks.length === 0) {
+                    container.innerHTML = '';
+                    noSubjects.style.display = 'block';
+                    return;
+                }
+                
+                noSubjects.style.display = 'none';
+                
+                // Group tasks by subject
+                const subjects = {};
+                tasks.forEach(task => {
+                    if (!subjects[task.subject]) {
+                        subjects[task.subject] = { total: 0, completed: 0 };
+                    }
+                    subjects[task.subject].total++;
+                    if (task.completed) {
+                        subjects[task.subject].completed++;
+                    }
+                });
+                
+                container.innerHTML = '';
+                
+                Object.entries(subjects).forEach(([subject, data]) => {
+                    const percentage = Math.round((data.completed / data.total) * 100);
+                    const subjectElement = document.createElement('div');
+                    
+                    subjectElement.innerHTML = `
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-medium">${subject}</span>
+                            <span class="text-sm text-gray-500">${data.completed}/${data.total}</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="h-2 rounded-full" style="width: ${percentage}%; background-color: #02FD6B;"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">${percentage}% complete</div>
+                    `;
+                    
+                    container.appendChild(subjectElement);
+                });
+            } catch (error) {
+                console.error('Error in updateSubjectPerformance:', error);
+            }
+        }
+
+        function updateAchievements() {
+            try {
+                const container = document.getElementById('achievements');
+                const noAchievements = document.getElementById('no-achievements');
+                
+                if (!container || !noAchievements) return;
+                
+                if (!currentUser || completedTasks === 0) {
+                    container.innerHTML = '';
+                    noAchievements.style.display = 'block';
+                    return;
+                }
+                
+                noAchievements.style.display = 'none';
+                
+                const achievements = [
+                    { id: 'first-task', name: 'First Steps', description: 'Complete your first task', icon: '🎯', unlocked: completedTasks >= 1 },
+                    { id: 'task-master', name: 'Task Master', description: 'Complete 10 tasks', icon: '🏆', unlocked: completedTasks >= 10 },
+                    { id: 'point-collector', name: 'Point Collector', description: 'Earn 100 points', icon: '💎', unlocked: points >= 100 },
+                    { id: 'reading-champion', name: 'Reading Champion', description: 'Read 5 books', icon: '📚', unlocked: booksRead >= 5 },
+                    { id: 'streak-keeper', name: 'Streak Keeper', description: 'Maintain a 7-day streak', icon: '🔥', unlocked: streakDays >= 7 },
+                    { id: 'super-student', name: 'Super Student', description: 'Complete 50 tasks', icon: '⭐', unlocked: completedTasks >= 50 }
+                ];
+                
+                container.innerHTML = '';
+                
+                achievements.forEach(achievement => {
+                    const achievementElement = document.createElement('div');
+                    achievementElement.className = `p-4 rounded-lg border-2 ${achievement.unlocked ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'}`;
+                    
+                    achievementElement.innerHTML = `
+                        <div class="text-center">
+                            <div class="text-3xl mb-2 ${achievement.unlocked ? '' : 'grayscale opacity-50'}">${achievement.icon}</div>
+                            <h4 class="font-semibold ${achievement.unlocked ? 'text-green-800' : 'text-gray-500'}">${achievement.name}</h4>
+                            <p class="text-sm ${achievement.unlocked ? 'text-green-600' : 'text-gray-400'}">${achievement.description}</p>
+                            ${achievement.unlocked ? '<div class="text-xs text-green-500 mt-1">✅ Unlocked!</div>' : '<div class="text-xs text-gray-400 mt-1">🔒 Locked</div>'}
+                        </div>
+                    `;
+                    
+                    container.appendChild(achievementElement);
+                });
+            } catch (error) {
+                console.error('Error in updateAchievements:', error);
+            }
+        }
+
+        // Reward claim function
+        function claimReward(rewardType, cost) {
+            try {
+                if (!currentUser) {
+                    alert('Please log in to claim rewards!');
+                    return;
+                }
+                
+                if (points < cost) {
+                    alert(`❌ You need ${cost - points} more points to claim this reward!`);
+                    return;
+                }
+                
+                if (confirm(`🎁 Claim this reward for ${cost} points?`)) {
+                    // Deduct points
+                    points -= cost;
+                    
+                    // Add to rewards history
+                    if (!currentUser.rewards) {
+                        currentUser.rewards = [];
+                    }
+                    
+                    currentUser.rewards.push({
+                        type: rewardType,
+                        cost: cost,
+                        claimedAt: new Date().toISOString()
+                    });
+                    
+                    // Update user stats
+                    currentUser.stats.points = points;
+                    updateUserData(currentUser);
+                    
+                    // Update display
+                    updateStats();
+                    
+                    const rewardNames = {
+                        'small-toy': '🧸 Small Toy',
+                        'favorite-food': '🍕 Favorite Food',
+                        'friend-playdate': '👫 Friend Play Date',
+                        'extra-screen-time': '📱 Extra Screen Time',
+                        'movie-night': '🎬 Family Movie Night',
+                        'special-outing': '🎡 Special Outing',
+                        'cash-5000': '💵 Cash Reward ₦5,000',
+                        'cash-10000': '💰 Big Cash Reward ₦10,000'
+                    };
+                    
+                    alert(`🎉 Congratulations! You've claimed: ${rewardNames[rewardType]}!\n\nRemaining points: ${points}`);
+                }
+            } catch (error) {
+                console.error('Error in claimReward:', error);
+                alert('❌ Error claiming reward. Please try again.');
+            }
+        }
+
+        // Generate access code function
+        function generateAccessCode() {
+            try {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let code = 'HWS-2024-';
+                for (let i = 0; i < 6; i++) {
+                    code += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                const codeElement = document.getElementById('access-code');
+                if (codeElement) {
+                    codeElement.textContent = code;
+                }
+                alert('🔑 New access code generated! Share this with your child\'s teacher.');
+            } catch (error) {
+                console.error('Error in generateAccessCode:', error);
+            }
+        }
+
+        // User data management
+        function saveUserData(userData) {
+            try {
+                localStorage.setItem('hwsUsers', JSON.stringify(getUsersData()));
+                localStorage.setItem('hwsCurrentUser', JSON.stringify(userData));
+            } catch (error) {
+                console.error('Error saving user data:', error);
+            }
+        }
+
+        function getUsersData() {
+            try {
+                return JSON.parse(localStorage.getItem('hwsUsers') || '{}');
+            } catch (error) {
+                console.error('Error getting users data:', error);
+                return {};
+            }
+        }
+
+        function getCurrentUser() {
+            try {
+                return JSON.parse(localStorage.getItem('hwsCurrentUser') || 'null');
+            } catch (error) {
+                console.error('Error getting current user:', error);
+                return null;
+            }
+        }
+
+        function createNewUser(formData) {
+            try {
+                const users = getUsersData();
+                const userId = 'user_' + Date.now();
+                
+                // Calculate pricing based on number of children
+                const childrenCount = formData.children.length;
+                const monthlyPrice = childrenCount >= 3 ? 10000 : 5000;
+                
+                // Set trial end date (7 days from now)
+                const trialEndDate = new Date();
+                trialEndDate.setDate(trialEndDate.getDate() + 7);
+                
+                const newUser = {
+                    id: userId,
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password,
+                    phone: formData.phone || '',
+                    children: formData.children,
+                    createdAt: new Date().toISOString(),
+                    
+                    // Subscription & Payment Tracking
+                    subscription: {
+                        status: 'trial', // trial, active, expired, cancelled
+                        plan: childrenCount >= 3 ? '3+children' : '1child',
+                        monthlyPrice: monthlyPrice,
+                        trialStartDate: new Date().toISOString(),
+                        trialEndDate: trialEndDate.toISOString(),
+                        nextBillingDate: trialEndDate.toISOString(),
+                        autoRenew: true
+                    },
+                    
+                    // Payment History
+                    payments: [],
+                    
+                    // User Stats
+                    stats: {
+                        points: 0,
+                        completedTasks: 0,
+                        booksRead: 0,
+                        streakDays: 0
+                    },
+                    tasks: {},
+                    rewards: [],
+                    stickers: []
+                };
+
+                // Initialize tasks for each child
+                formData.children.forEach((child, index) => {
+                    newUser.tasks[`child${index + 1}`] = [];
+                });
+
+                users[formData.email] = newUser;
+                localStorage.setItem('hwsUsers', JSON.stringify(users));
+                
+                return newUser;
+            } catch (error) {
+                console.error('Error creating new user:', error);
+                return null;
+            }
+        }
+
+        function authenticateUser(email, password) {
+            try {
+                const users = getUsersData();
+                const user = users[email];
+                return user && user.password === password ? user : null;
+            } catch (error) {
+                console.error('Error authenticating user:', error);
+                return null;
+            }
+        }
+
+        function updateUserData(updates) {
+            try {
+                if (!currentUser) return;
+                
+                const users = getUsersData();
+                users[currentUser.email] = { ...currentUser, ...updates };
+                currentUser = users[currentUser.email];
+                
+                localStorage.setItem('hwsUsers', JSON.stringify(users));
+                localStorage.setItem('hwsCurrentUser', JSON.stringify(currentUser));
+            } catch (error) {
+                console.error('Error updating user data:', error);
+            }
+        }
+
+        // Function to update dashboard with real parent name
+        function updateDashboardName(name) {
+            try {
+                const parentNameEl = document.getElementById('parent-name');
+                const headerParentNameEl = document.getElementById('header-parent-name');
+                
+                if (parentNameEl) parentNameEl.textContent = name;
+                if (headerParentNameEl) headerParentNameEl.textContent = name;
+            } catch (error) {
+                console.error('Error updating dashboard name:', error);
+            }
+        }
+
+        function loadUserDashboard() {
+            try {
+                if (!currentUser) return;
+                
+                updateDashboardName(currentUser.name);
+                
+                // Load user stats (start fresh if no stats exist)
+                points = currentUser.stats?.points || 0;
+                completedTasks = currentUser.stats?.completedTasks || 0;
+                booksRead = currentUser.stats?.booksRead || 0;
+                streakDays = currentUser.stats?.streakDays || 0;
+                
+                // Update child selector with real children
+                updateChildSelector();
+                
+                // Load tasks for first child
+                if (currentUser.children.length > 0) {
+                    currentChild = 'child1';
+                    selectChild('child1');
+                    
+                    // Recalculate live stats from actual task data
+                    recalculateStatsFromTasks();
+                }
+                
+                updateStats();
+            } catch (error) {
+                console.error('Error loading user dashboard:', error);
+            }
+        }
+
+        function recalculateStatsFromTasks() {
+            try {
+                if (!currentUser || !currentUser.tasks) return;
+                
+                // Reset stats
+                let totalPoints = 0;
+                let totalCompleted = 0;
+                let totalBooksRead = 0;
+                
+                // Calculate stats from all children's tasks
+                Object.values(currentUser.tasks).forEach(childTasks => {
+                    if (Array.isArray(childTasks)) {
+                        childTasks.forEach(task => {
+                            if (task.completed) {
+                                totalPoints += task.points || 0;
+                                totalCompleted++;
+                                if (task.type === 'reading') {
+                                    totalBooksRead++;
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Update global stats
+                points = totalPoints;
+                completedTasks = totalCompleted;
+                booksRead = totalBooksRead;
+                
+                // Calculate streak for current child
+                updateStreakDays();
+                
+                // Save updated stats
+                currentUser.stats = {
+                    points: points,
+                    completedTasks: completedTasks,
+                    booksRead: booksRead,
+                    streakDays: streakDays
+                };
+                
+                updateUserData(currentUser);
+            } catch (error) {
+                console.error('Error recalculating stats:', error);
+            }
+        }
+
+        function updateChildSelector() {
+            try {
+                const container = document.getElementById('child-selector-container');
+                if (!container || !currentUser) return;
+                
+                container.innerHTML = '';
+                
+                const colors = ['#02FD6B', '#FD0294', '#0216FD', '#FDE902', '#FF6B35', '#8B5CF6'];
+                
+                currentUser.children.forEach((child, index) => {
+                    const button = document.createElement('button');
+                    button.onclick = () => selectChild(`child${index + 1}`);
+                    button.className = 'child-btn px-4 sm:px-6 py-3 rounded-lg font-medium hover:opacity-90 transform hover:scale-105 transition-all text-sm sm:text-base';
+                    button.style.backgroundColor = colors[index % colors.length];
+                    button.style.color = colors[index % colors.length] === '#FDE902' || colors[index % colors.length] === '#02FD6B' ? 'black' : 'white';
+                    button.dataset.child = `child${index + 1}`;
+                    
+                    const emoji = index % 2 === 0 ? '👧' : '👦';
+                    button.textContent = `${emoji} ${child.name} (${child.class})`;
+                    
+                    container.appendChild(button);
+                });
+            } catch (error) {
+                console.error('Error updating child selector:', error);
+            }
+        }
+
+        // Registration functions
+        function updatePricing() {
+            updateChildrenInputs();
+        }
+
+        function updateChildrenInputs() {
+            try {
+                const countSelect = document.getElementById('children-count');
+                const container = document.getElementById('children-details');
+                
+                if (!countSelect || !container) return;
+                
+                const count = countSelect.value;
+                
+                if (count === '3') {
+                    container.innerHTML = `
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 1 Name & Class <span class="text-red-500">*</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (e.g., JSS 1)">
+                            </div>
+                        </div>
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 2 Name & Class <span class="text-red-500">*</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (e.g., Primary 5)">
+                            </div>
+                        </div>
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 3 Name & Class <span class="text-red-500">*</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name">
+                                <input type="text" required class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (e.g., Primary 3)">
+                            </div>
+                        </div>
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 4 Name & Class <span class="text-gray-400">(Optional)</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name (optional)">
+                                <input type="text" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (optional)">
+                            </div>
+                        </div>
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 5 Name & Class <span class="text-gray-400">(Optional)</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name (optional)">
+                                <input type="text" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (optional)">
+                            </div>
+                        </div>
+                        <div class="child-input">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Child 6 Name & Class <span class="text-gray-400">(Optional)</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Child's name (optional)">
+                                <input type="text" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Class (optional)">
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error updating children inputs:', error);
+            }
+        }
+
+        // Set default dates for task form
+        function setDefaultDates() {
+            try {
+                const today = new Date().toISOString().split('T')[0];
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const tomorrowStr = tomorrow.toISOString().split('T')[0];
+                
+                const dateGivenInput = document.getElementById('task-date-given');
+                const dueDateInput = document.getElementById('task-due-date');
+                
+                if (dateGivenInput) dateGivenInput.value = today;
+                if (dueDateInput) dueDateInput.value = tomorrowStr;
+            } catch (error) {
+                console.error('Error setting default dates:', error);
+            }
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Check if user is already logged in
+                currentUser = getCurrentUser();
+                
+                if (currentUser) {
+                    // User is logged in, go to dashboard
+                    loadUserDashboard();
+                    showSection('dashboard');
+                } else {
+                    // No user logged in, show home page
+                    showSection('home');
+                }
+                
+                updateChildrenInputs();
+                setDefaultDates();
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                    const loginDropdown = document.getElementById('login-dropdown');
+                    const userDropdown = document.getElementById('user-dropdown');
+                    const button = event.target.closest('button');
+                    
+                    if (!button || button.getAttribute('onclick') !== 'toggleLoginDropdown()') {
+                        if (loginDropdown) loginDropdown.classList.add('hidden');
+                    }
+                    
+                    if (!button || button.getAttribute('onclick') !== 'toggleUserDropdown()') {
+                        if (userDropdown) {
+                            userDropdown.classList.add('hidden');
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error initializing app:', error);
+            }
+        });
+
+        // Form event listeners
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            try {
+                const formData = new FormData(e.target);
+                const password = e.target.querySelector('input[type="password"]').value;
+                const confirmPassword = e.target.querySelectorAll('input[type="password"]')[1].value;
+                const parentName = e.target.querySelector('input[placeholder="Enter your full name"]').value;
+                const email = e.target.querySelector('input[type="email"]').value;
+                
+                if (password !== confirmPassword) {
+                    alert('❌ Passwords do not match. Please try again.');
+                    return;
+                }
+                
+                // Check if email already exists
+                const users = getUsersData();
+                if (users[email]) {
+                    alert('❌ An account with this email already exists. Please use a different email or try logging in.');
+                    return;
+                }
+                
+                // Collect children data
+                const childInputs = document.querySelectorAll('.child-input');
+                const children = [];
+                
+                childInputs.forEach(childInput => {
+                    const nameInput = childInput.querySelector('input[placeholder*="name"]');
+                    const classInput = childInput.querySelector('input[placeholder*="Class"]');
+                    
+                    if (nameInput && classInput && nameInput.value.trim() && classInput.value.trim()) {
+                        children.push({
+                            name: nameInput.value.trim(),
+                            class: classInput.value.trim()
+                        });
+                    }
+                });
+                
+                if (children.length === 0) {
+                    alert('❌ Please add at least one child\'s information.');
+                    return;
+                }
+                
+                // For 3+ children plan, require at least 3 children
+                const selectedPlan = document.getElementById('children-count').value;
+                if (selectedPlan === '3' && children.length < 3) {
+                    alert('❌ The 3-6 Children plan requires at least 3 children. Please add more children or select the 1 Child plan.');
+                    return;
+                }
+                
+                // Create new user account
+                const newUserData = {
+                    name: parentName,
+                    email: email,
+                    password: password,
+                    children: children
+                };
+                
+                currentUser = createNewUser(newUserData);
+                if (currentUser) {
+                    saveUserData(currentUser);
+                    
+                    // Load user dashboard
+                    loadUserDashboard();
+                    
+                    alert(`🎉 Registration successful! Your 7-day free trial has started for ${children.length} child${children.length > 1 ? 'ren' : ''}. Welcome to Homework Without Stress!`);
+                    showSection('dashboard');
+                } else {
+                    alert('❌ Registration failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error in registration:', error);
+                alert('❌ Registration failed. Please try again.');
+            }
+        });
+
+        // Parent login form handler
+        document.getElementById('parent-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            try {
+                const email = e.target.querySelector('input[type="email"]').value;
+                const password = e.target.querySelector('input[type="password"]').value;
+                
+                const user = authenticateUser(email, password);
+                
+                if (user) {
+                    currentUser = user;
+                    saveUserData(currentUser);
+                    loadUserDashboard();
+                    
+                    alert('✅ Login successful! Welcome back to your dashboard.');
+                    showSection('dashboard');
+                } else {
+                    alert('❌ Invalid email or password. Please check your credentials and try again.');
+                }
+            } catch (error) {
+                console.error('Error in parent login:', error);
+                alert('❌ Login failed. Please try again.');
+            }
+        });
+
+        // Teacher login form handler
+        document.getElementById('teacher-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            try {
+                const accessCode = e.target.querySelector('input[placeholder="Enter access code from parent"]').value;
+                const codeElement = document.getElementById('access-code');
+                
+                if (codeElement && accessCode === codeElement.textContent) {
+                    alert('✅ Teacher access granted! Welcome to the student tracking dashboard.');
+                    showSection('dashboard');
+                } else {
+                    alert('❌ Invalid access code. Please check with the parent for the correct code.');
+                }
+            } catch (error) {
+                console.error('Error in teacher login:', error);
+                alert('❌ Teacher login failed. Please try again.');
+            }
+        });
+
+        // Contact form handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            try {
+                alert('📧 Thank you for your message! We\'ll get back to you within 24 hours.');
+                e.target.reset();
+            } catch (error) {
+                console.error('Error in contact form:', error);
+            }
+        });
+
+        // Task form handler
+        document.getElementById('task-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            try {
+                if (!currentUser || !currentChild) {
+                    alert('❌ Please select a child first!');
+                    return;
+                }
+                
+                const taskData = {
+                    id: Date.now(),
+                    type: document.getElementById('task-type').value,
+                    description: document.getElementById('task-description').value,
+                    subject: document.getElementById('task-subject').value || 'General',
+                    dateGiven: document.getElementById('task-date-given').value,
+                    dueDate: document.getElementById('task-due-date').value,
+                    completed: false,
+                    points: 15 // Default points
+                };
+                
+                // Initialize tasks array if it doesn't exist
+                if (!currentUser.tasks[currentChild]) {
+                    currentUser.tasks[currentChild] = [];
+                }
+                
+                currentUser.tasks[currentChild].push(taskData);
+                tasks = currentUser.tasks[currentChild];
+                
+                updateUserData(currentUser);
+                renderTasks();
+                closeTaskModal();
+                
+                alert('✅ Task added successfully!');
+            } catch (error) {
+                console.error('Error adding task:', error);
+                alert('❌ Error adding task. Please try again.');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983f637a6275b235',t:'MTc1ODY4NjU3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
